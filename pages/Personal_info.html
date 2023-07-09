@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="keyboards" content="HTML 5, CSS3, JavaScript, JQuery, AngularJs"/>
+  <meta name="description" content="Dynamic web development">
+  <meta name="author" content="edmond">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <title>Personal information</title>
+
+
+</head>
+<body>
+
+<div class="headnav">
+  <nav class="topnav">
+    <ul>
+      <li style="float:left;"><a href="Registration.html">Register New Client</a></li>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </nav>
+  <header>
+    <h1>Personal Information</h1>
+  </header>
+</div>
+
+<section>
+  <nav class="col-3">
+    <ul>
+      <li><a href="#"><strong>Personal Information</strong> </a> </li>
+      <li><a href="Risk_factors.html">Risk Factor Information</a> </li>
+      <li><a href="HEPB_form.html">Hepatitis B Pregnant Women Reporting form</a></li>
+      <li><a href="CONGEN_SYPHILIS.html">Congenital Syphilis Form</a></li>
+      <li><a href="STI_form.html">Chlamydia & Gonorrhea case reporting form</a></li>
+    </ul>
+  </nav>
+<article class="col-9">
+  <div style="width:50%;" class="container">
+    <h1>Personal Information</h1>
+    <form action="Personal_info.html" method="post">
+      <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+    </div>
+      <div class="form-group">
+        <label for="identifier">Unique Identifier:</label>
+        <input type="text" id="identifier" name="identifier" required>
+      </div>
+      <div class="form-group">
+        <label for="sex">Sex:</label>
+        <select id="sex" name="sex" required>
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender Identity:</label>
+        <input type="text" id="gender" name="gender" required>
+      </div>
+      <div class="form-group">
+        <label for="orientation">Sexual Orientation:</label>
+        <input type="text" id="orientation" name="orientation" required>
+      </div>
+      <div class="form-group">
+  <label for="yearOfBirth">Year of Birth:</label>
+  <input type="text" id="yearOfBirth" name="yearOfBirth" pattern="\d{4}" title="Please enter a valid year (e.g., 1990)" required>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="Save">
+      </div>
+    </form>
+  </div>
+</article>
+
+</section>
+
+
+
+</body>
+
+
+</html>
