@@ -7,14 +7,20 @@
   <meta name="author" content="edmond">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <script src="../scripts/formvalidation.js" type="text/javascript">
+
+  </script>
   <title>Chlamydia & Gonorrhea Page</title>
 
+<style>
+  span{
+    color: red;
+  }
+</style>
 
 </head>
 <body>
   <div class="headnav">
-
-
   <nav class="topnav">
     <ul>
       <li style="float:left;"><a href="Registration.html">Register New Client</a></li>
@@ -38,37 +44,38 @@
       </ul>
     </nav>
   <article class="col-9">
-    <form action="#" method="post">
-      <table>
-
 
     <h2>Clinic Information</h2>
+<form name="clinicinfo" method="post" onsubmit="return formvalidation();" autocomplete="off">
     <div class="form-group">
       <label for="date">Date:</label>
-      <input type="date" id="date" name="date">
+      <input type="date" id="date" name="date" ><span id="dateerr"></span>
+
+      <label for="person_completing">Person Completing Form:</label>
+      <input type="text" id="person_completing" name="person_completing"><span id="pcomerr"></span>
+      </div>
+      <div class="form-group">
+      <label for="health_provider">Health Provider:</label>
+      <input type="text" id="health-provider" name="health_provider"><span id="healtherr"></span>
+
+      <label for="contact_info">Contact phone number/fax:</label>
+      <input type="text" id="contact-info" name="contact_info"><span id="contacterr"></span>
     </div>
-    <div class="form-group">
-      <label for="person-completing">Person Completing Form:</label>
-      <input type="text" id="person-completing" name="person-completing">
-    </div>
-    <div class="form-group">
-      <label for="health-provider">Health Provider:</label>
-      <input type="text" id="health-provider" name="health-provider">
-    </div>
-    <div class="form-group">
-      <label for="contact-info">Contact phone number/fax:</label>
-      <input type="text" id="contact-info" name="contact-info">
-    </div>
-    <p>Your lab reported a communicable disease on the patient shown below and listed you as the provider. The Oregon Department of Human Services and Washington County require additional information. The fax cover sheet you have received references Oregon Law (ORS 433) that requires you to report this information. Please complete the form within 24 hours, or by the end of the next working day, and fax it back to our office at 503-846-3644. If you prefer, you may call to report the required information. We appreciate your cooperation and prompt handling of this confidential report.</p>
+
+    <p>Your lab reported a communicable disease on the patient shown below and listed you as the provider.
+      The Oregon Department of Human Services and Washington County require additional information.
+      The fax cover sheet you have received references Oregon Law (ORS 433) that requires you to report this information.
+      Please complete the form within 24 hours, or by the end of the next working day, and fax it back to our office at 503-846-3644.
+      If you prefer, you may call to report the required information. We appreciate your cooperation and prompt handling of this confidential report.</p>
     <h2>Patient Information — Please complete all information requested below</h2>
 
-    <form action="#" method="post">
+
         <table>
           <tr>
             <th>1. NAME:</th>
-            <td><input type="text" id="name" name="name"></td>
+            <td><input type="text" id="name" name="name"><span id="nameerr"></span></td>
             <th>DATE OF BIRTH:</th>
-            <td><input type="date" id="date-of-birth" name="date-of-birth"></td>
+            <td><input type="date" id="date-of-birth" name="date-of-birth"><span id="doberr"></span></td>
             <th>GENDER:</th>
             <td>
               <input type="checkbox" id="gender-male" name="gender" value="Male">
@@ -76,7 +83,7 @@
               <input type="checkbox" id="gender-female" name="gender" value="Female">
               <label for="gender-female">Female</label>
               <input type="checkbox" id="gender-other" name="gender" value="Other">
-              <label for="gender-other">Other</label>
+              <label for="gender-other">Other</label><span id="gendererr"></span>
             </td>
           </tr>
           <tr>
@@ -105,7 +112,7 @@
       <input type="checkbox" id="test-results-positive" name="test-results" value="Positive">
       <label for="test-results-positive">Positive:</label>
       If positive, how many weeks?
-      <input type="text" id="weeks-pregnant" name="weeks-pregnant">
+      <input type="text" id="weeks-pregnant" name="weeks-pregnant"><span id="pregnancytesterr"></span>
     </td>
   </tr>
   <tr>
@@ -116,7 +123,7 @@
     <input type="checkbox" id="ethnicity-non-hispanic" name="ethnicity" value="Non-Hispanic">
     <label for="ethnicity-non-hispanic">Non-Hispanic</label>
     <input type="checkbox" id="ethnicity-unknown" name="ethnicity" value="Unknown">
-    <label for="ethnicity-unknown">Unknown</label>
+    <label for="ethnicity-unknown">Unknown</label><span id="ethnicityerr"></span>
   </td>
 </tr>
 <tr>
@@ -138,7 +145,7 @@
     <label for="race-pacific-islander">Pacific Islander</label>
     <input type="checkbox" id="race-other" name="race" value="Other">
     <label for="race-other">Other:</label>
-    <input type="text" id="race-other-text" name="race-other-text">
+    <input type="text" id="race-other-text" name="race-other-text"><span id="raceerr"></span>
   </td>
 </tr>
 <tr>
@@ -151,7 +158,7 @@
     <input type="checkbox" id="partner-gender-both" name="partner-gender" value="Both">
     <label for="partner-gender-both">Both</label>
     <input type="checkbox" id="partner-gender-unknown" name="partner-gender" value="Unknown">
-    <label for="partner-gender-unknown">Unknown</label>
+    <label for="partner-gender-unknown">Unknown</label><span id="partnergendererr"></span>
   </td>
 </tr>
 
@@ -171,7 +178,7 @@
     <input type="checkbox" id="previous-hiv-result-neg" name="previous-hiv-result" value="NEG">
     <label for="previous-hiv-result-neg">NEG</label>
     <input type="checkbox" id="previous-hiv-result-unknown" name="previous-hiv-result" value="Unknown">
-    <label for="previous-hiv-result-unknown">Unknown</label>
+    <label for="previous-hiv-result-unknown">Unknown</label><span id="prevhiverr"></span>
     <br>
     Month of last test:
     <input type="text" id="last-test-month" name="last-test-month">
@@ -192,7 +199,7 @@
     <input type="checkbox" id="reason-exposed-to-infection" name="reason" value="Exposed to Infection">
     <label for="reason-exposed-to-infection">Exposed to Infection</label>
     <input type="checkbox" id="reason-pregnant" name="reason" value="Pregnant">
-    <label for="reason-pregnant">Pregnant</label>
+    <label for="reason-pregnant">Pregnant</label><span id="reasonerr"></span>
   </td>
 </tr>
 <tr>
@@ -207,7 +214,7 @@
     <input type="checkbox" id="diagnosis-ophthalmia" name="diagnosis" value="Ophthalmia / Conjunctivitis">
     <label for="diagnosis-ophthalmia">Ophthalmia / Conjunctivitis</label>
     <input type="checkbox" id="diagnosis-disseminated" name="diagnosis" value="Disseminated">
-    <label for="diagnosis-disseminated">Disseminated</label>
+    <label for="diagnosis-disseminated">Disseminated</label><span id="diagnosiserrr"></span>
   </td>
 </tr>
 <tr>
@@ -228,16 +235,9 @@
     <input type="checkbox" id="site-rectum" name="site" value="Rectum">
     <label for="site-rectum">Rectum</label>
     <input type="checkbox" id="site-other" name="site" value="Other">
-    <label for="site-other">Other</label>
+    <label for="site-other">Other</label><span id="siteerr"></span>
   </td>
 </tr>
-
-
-
-
-
-
-
     </table>
     <div class="form-group">
       <input type="submit" value="Submit">
@@ -245,6 +245,7 @@
   </form>
 
   </article>
+
 </body>
 
 
