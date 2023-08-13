@@ -8,14 +8,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="../css/main.css">
   <title>Registration Page</title>
+  <script type="text/javascript">
+      function collectAndDisplayData(event) {
+        event.preventDefault();
 
+        const form = event.target;
+        const formData = new FormData(form);
+        const formDataMap = new Map();
+
+        for (const [key, value] of formData.entries()) {
+          formDataMap.set(key, value);
+        }
+
+        const displayContainer = document.getElementById("display-container");
+        displayContainer.innerHTML = "";
+
+        for (const [key, value] of formDataMap.entries()) {
+          const dataEntry = document.createElement("p");
+          dataEntry.textContent = `${key}: ${value}`;
+          displayContainer.appendChild(dataEntry);
+        }
+      }
+    </script>
 
 </head>
 
 <body>
   <div class="headnav">
-
-
   <nav class="topnav">
     <ul>
       <li style="float:left;"><a href="Registration.html">Register New Client</a></li>
@@ -28,11 +47,9 @@
   </header>
     </div>
   <section>
-
-  <article style="border-style: none; "class="col-12">
     <div class="container">
       <h1>Registration</h1>
-      <form action="Personal_info.html" method="post">
+      <form action="Personal_info.html" method="post" onsubmit="collectAndDisplayData(event)">
         <div class="form-group">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name">
@@ -63,12 +80,13 @@
     <input type="text" id="yearOfBirth" name="yearOfBirth" pattern="\d{4}" title="Please enter a valid year (e.g., 1990)" required>
         </div>
 
-        <div class="form-group">
+
           <input type="submit" value="Register">
-        </div>
+      
       </form>
+      <div id="display-container"></div>
     </div>
-  </article>
+  </section>
 </body>
 
 

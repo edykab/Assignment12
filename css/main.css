@@ -125,7 +125,7 @@ section nav li a {
 }
 
 .container {
-  width: 300px;
+  width: 50%;
   margin: 0 auto;
   padding: 20px;
   background-color: #f1f1f1;
@@ -170,13 +170,14 @@ input[type="password"] {
 }
 
 input[type="submit"] {
-  width: 100%;
+  width: 50%;
   padding: 10px;
   background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+
 }
 
 input[type="submit"]:hover {
@@ -187,7 +188,7 @@ input[type="submit"]:hover {
 table {
   width: 100%;
   border-collapse: collapse;
-table-layout: fixed;
+  table-layout: fixed;
 
 }
 
@@ -196,8 +197,9 @@ th, td {
   text-align: left;
   border-bottom: 2px solid #ddd;
   word-wrap: break-word;
-    overflow-wrap: break-word;
+  overflow-wrap: break-word;
 }
+
 td{
   border-right: 2px solid #ddd;
 }

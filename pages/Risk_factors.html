@@ -7,8 +7,43 @@
   <meta name="author" content="edmond">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <script type="text/javascript" src="../scripts/drag.js"></script>
   <title>Risk Factor Page</title>
+<style media="screen">
+.container {
+  display: inline-block;
+  vertical-align: top;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  min-height: 350px;
+  margin: 20px;
+}
 
+.container p {
+  margin: 2px;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 70%;
+  cursor: grab;
+  user-select: none;
+}
+
+.container.drag-over {
+  border-color: #007bff;
+}
+
+.container.drag-enter {
+  border-style: dashed;
+}
+
+.container p.dragging {
+  background-color: #007bff;
+  color: white;
+}
+</style>
 
 </head>
 <body>
@@ -39,39 +74,20 @@
   <article style="width:50%; margin-left:50px;" class="col-9">
     <h2>Risk Factors</h2>
     <form action="#" method="post">
-    <div class="form-group">
-      <label for="age">1. Age:</label>
-      <input type="number" id="age" name="age" required>
-    </div>
-    <div class="form-group">
-      <label for="occupation">2. Occupation:</label>
-      <input type="text" id="occupation" name="occupation" required>
-    </div>
-    <div class="form-group">
-      <label for="smoking">3. Smoking History:</label>
-      <input type="radio" id="smoking-yes" name="smoking" value="yes" required>
-      <label for="smoking-yes">Yes</label>
-      <input type="radio" id="smoking-no" name="smoking" value="no">
-      <label for="smoking-no">No</label>
-    </div>
-    <div class="form-group">
-      <label for="alcohol">4. Alcohol Consumption:</label>
-      <input type="radio" id="alcohol-yes" name="alcohol" value="yes" required>
-      <label for="alcohol-yes">Yes</label>
-      <input type="radio" id="alcohol-no" name="alcohol" value="no">
-      <label for="alcohol-no">No</label>
-    </div>
-    <div class="form-group">
-      <label for="family-history">5. Family History of the Disease:</label>
-      <input type="radio" id="family-history-yes" name="family-history" value="yes" required>
-      <label for="family-history-yes">Yes</label>
-      <input type="radio" id="family-history-no" name="family-history" value="no">
-      <label for="family-history-no">No</label>
-    </div>
-    <div class="form-group">
-      <label for="medical-history">6. Medical History:</label>
-      <textarea id="medical-history" name="medical-history" required></textarea>
-    </div>
+      <div class="containers">
+        <p>In the last 12 months, drag the options that apply</p>
+        <div class="container" id="container1" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <p draggable="true" id="maleSex" ondragstart="drag(event)">Had sex with males</p>
+          <p draggable="true" id="femaleSex" ondragstart="drag(event)">Had sex with females</p>
+          <p draggable="true" id="sexualAssault" ondragstart="drag(event)">Victim of sexual assault</p>
+          <p draggable="true" id="homeless" ondragstart="drag(event)">Homeless</p>
+          <p draggable="true" id="incarcerated" ondragstart="drag(event)">Incarcerated</p>
+          <p draggable="true" id="exposure" ondragstart="drag(event)">Possible exposure</p>
+          <p draggable="true" id="screening" ondragstart="drag(event)">Routine screening</p>
+        </div>
+
+        <div class="container" id="container2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+      </div>
     <div class="form-group">
       <input type="submit" value="Save">
     </div>
